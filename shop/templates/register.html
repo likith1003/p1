@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="nav">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="register">Register</a></li>
+            <li><a href="login">Login</a></li>
+        </ul>
+    </div>
+    
+    <h1>This is registration Page </h1>
+    <form action="register" method="post">
+        {% csrf_token %}
+        <label for="">Name <span>*</span></label> <br>
+        <input type="text" required name="nme"> <br><br>
+        <label for="">Pno<span>*</span></label> <br>
+        <input type="text" required name="pno"> <br><br>
+        <label for="">Email<span>*</span></label> <br>
+        <input type="email" required name="email"> <br><br>
+        <label for="">Gender<span>*</span></label> <br>
+        <label for="">Male</label>
+        <input type="radio" required>
+        <label for="">Female</label>
+        <input type="radio"><br><br>
+        <label for="">Dob<span>*</span></label> <br>
+        <input type="date" required name="dob"> <br><br>
+        <label for="">Address</label> <br>
+        <textarea name="address" id="" cols="30" rows="10"></textarea> <br><br>
+        <label for="">Blood Group<span>*</span></label> <br>
+        <input type="text" required name="bg"> <br><br>
+        <label for="">Password<span>*</span></label> <br>
+        <input type="password" required name="pw"> <br><br>
+        <label for="">Confirm Password<span>*</span></label> <br>
+        <input type="pass" required name="cpw"> <br><br>
+        already a user?<a href="login">Login</a> <br><br>
+        <button>Register</button>
+        <button>Cancel</button>
+    </form>
+    {% for message in messages %}
+    <h1>{{message}}</h1>
+    {% endfor %}
+    <style>
+        #nav ul,#nav li{
+            display: inline-block;
+        }
+        form{
+            width: 15%;
+            margin: auto;
+        }
+        span{
+            color: red;
+        }
+    </style>
+</body>
+</html>
