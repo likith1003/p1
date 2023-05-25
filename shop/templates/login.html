@@ -14,11 +14,38 @@
             <li><a href="login">Login</a></li>
         </ul>
     </div>
+
+    <form action="login" method="post">
+        {% csrf_token %}
+        <h1>This is login Page</h1>
+        <input type="text" placeholder="Username or Email id" required name="un"> <br><br>
+        <input type="password" placeholder="Enter your Password" required name="pw"> <br><br>
+
+        Not a user?<a href="">Signup</a> <br><br>
+        <button type="submit">Login</button>
+        <button type="reset">Cancel</button>
+    </form>
+    {% for message in messages %}
+    <h1>{{message}}</h1>
+    
+    {% endfor %}
+    {{user.name}} <br>
+    {{user.pno}} <br>
+    {{user.email}} <br>
+    {{user.address}} <br>
+    {{user.bg}} <br>
     <style>
+        form{
+            border: 1px solid black;
+            width: 15%;
+            padding: 25px;
+            text-align: center;
+            margin: auto;
+        }
         #nav ul,#nav li{
             display: inline-block;
         }
     </style>
-    <h1>This is login Page</h1>
+    
 </body>
 </html>
